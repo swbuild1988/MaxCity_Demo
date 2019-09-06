@@ -1,0 +1,48 @@
+@import "../../assets/less/variables.less";
+
+.topPage-wrap {
+    width: 100%;
+    height: 11.5vh;
+    display: flex;
+    .grid-cell{
+        flex: 1;
+    }
+    .title{
+        color: @mian-font-color;
+        font-size: 3.4vmin;
+        margin-top: 3.8vmin;
+        padding-left: 2.4vmin;
+        flex: 0 0 25%;
+    }
+    .menu-container{
+        margin: 2.4vmin auto;
+        display: flex;
+        li{
+            font-size: 2.4vmin;
+            list-style: none;
+        }
+        .menu-item{
+            color: @menu;
+            cursor: pointer;
+        }
+        .menu-item-activited{
+            color: @menu-activited;
+        }
+    }
+    .menu-operation{
+        display: flex;
+        flex: 0 0 25%;
+        justify-content: flex-end;
+        .grid-cell-operation{
+            list-style: none;
+            flex: 0 0 25%;
+            text-align: center;
+            margin-top: 1vmin;
+            cursor: pointer;
+        }
+        .menu-operation-title{
+            color: @menu;
+        }
+    }
+}
+
