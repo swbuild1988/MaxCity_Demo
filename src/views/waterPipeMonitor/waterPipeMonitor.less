@@ -1,0 +1,59 @@
+@import "../../assets/less/variables.less";
+
+.waterPipeMonitor-wrap {
+    width: 100%;
+    .top-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        justify-content:space-between;
+        .map-wrap,.data-wrap{
+            flex: 0 0 49.5%;
+            height: 45vh;
+        }
+        .waterPipeData-wrap{
+            height: 40vh;
+            margin-top: 1vh;
+            padding: 1vmin;
+        }
+    }
+    .echarts-wrap{
+        display: flex;
+        .item{
+            flex: 0 0 33.333%;
+            height: 40vh;
+            padding: 1vmin;
+            .waterPipeData-wrap{
+                height: 35vh;
+                margin-top: 1vh;
+                padding: 0.1vmin;
+                .tableList-wrap{
+                    height: 35vh;
+                    margin-top: 1vh;
+                    .table-header, .table-body li{
+                        color: @title-color;
+                        .number{
+                            flex: 0 0 25%;
+                        }
+                        .pipe-range{
+                            flex: 0 0 75%;
+                        }
+                    }
+                }
+                .run-environment,.testing-ability{
+                    :nth-child(1){
+                        flex: 0 0 30%;
+                    }
+                    :nth-child(2){
+                        flex: 1;
+                    }
+                }
+            }
+        }
+    }
+    .title-wrap{
+        font-size: 2.2vmin;
+        color: @title-color;
+        margin-left: 4.5vw;
+    }
+}
