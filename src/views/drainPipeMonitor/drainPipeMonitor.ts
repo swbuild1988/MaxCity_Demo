@@ -21,6 +21,8 @@ export default class About extends Vue {
     pumpTypeTitle: string = '泵站种类'
     equipemtNameTitle: string = '设备名称'
     equipmentStatisticsTitle: string = '排水管网设备统计（个）'
+    drainPipeMap: string = require('../../assets/images/drainPipeMap.png')
+    mapBack: string = require('../../assets/images/mapBackground.png')
 
     data: DrainPipeMonitorData = {
         pageName: 'drainPipeMonitor',

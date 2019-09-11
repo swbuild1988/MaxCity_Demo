@@ -17,6 +17,8 @@ export default class About extends Vue {
     feedPipeTitle: string = '供水管网安全检测范围'
     feedPipeDataBack: string = require('../../assets/images/feedPipeDataBack.png')
     echartsWrapBack: string = require('../../assets/images/chartsBg.png')
+    mapBack: string = require('../../assets/images/mapBackground.png')
+    feedPipeMap: string = require('../../assets/images/feedPipeMap.png')
 
     // data
     data: FeedPipeMonitorData = {

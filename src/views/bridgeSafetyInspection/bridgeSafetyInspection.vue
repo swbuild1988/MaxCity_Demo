@@ -17,13 +17,19 @@
             </div>
         </div>    
         <div class="grid-cell echarts-box-2">
-            <MultiLine id="tempAndWind" v-bind:data="tempAndWind"/>
+            <div class="echart-wrap" :style="{background: 'url('+ echartsWrapBack +') no-repeat',backgroundSize: '100% 100%'}">
+                <MultiLine id="tempAndWind" v-bind:data="tempAndWind"/>
+            </div>
         </div>
         <div class="grid-cell echarts-box-1">
-            <MultiBar id="MultiBar" v-bind:data="multibar"/>
+            <div class="echart-wrap" :style="{background: 'url('+ echartsWrapBack +') no-repeat',backgroundSize: '100% 100%'}">
+                <MultiBar id="MultiBar" v-bind:data="multibar"/>
+            </div>        
         </div>
         <div class="grid-cell echarts-box-1">
-            <MultiLine id="observeParams" v-bind:data="observeParams"/>
+            <div class="echart-wrap" :style="{background: 'url('+ echartsWrapBack +') no-repeat',backgroundSize: '100% 100%'}">
+                <MultiLine id="observeParams" v-bind:data="observeParams"/>
+            </div>        
         </div>
     </div>
 </template>

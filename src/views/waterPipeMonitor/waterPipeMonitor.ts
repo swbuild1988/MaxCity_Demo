@@ -15,6 +15,8 @@ export default class About extends Vue {
     physicalParameterTitle: string = '物理参数'
     operaEnvironmentTitle: string = '运行环境'
     detectCapabilityTitle: string = '检测能力'
+    mapBack: string = require('../../assets/images/mapBackground.png')
+    waterPipeMap: string = require('../../assets/images/waterPipeMap.png')
 
     // data
     data: WaterPipeMonitorData = {

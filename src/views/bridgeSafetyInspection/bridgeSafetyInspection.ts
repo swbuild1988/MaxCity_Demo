@@ -18,6 +18,7 @@ export default class About extends Vue {
     bridgeAnalyseBackground: string = require('../../assets/images/dialog-box.png')
     bridgeTypeBackground = require('../../assets/images/bridge-frame.png')
     bridgePic = require('../../assets/images/bradge.png')
+    echartsWrapBack: string = require('../../assets/images/chartsBg.png')
 
     bridgeAnalyse: string[] = [
         "吊杆锈蚀断丝",

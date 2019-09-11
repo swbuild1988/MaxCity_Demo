@@ -21,6 +21,8 @@ export default class About extends Vue {
     scopeConstructTitle: string = '建设范围（公里/个）'
     sewagePipelineTitle: string = '污水管线'
     monitorPointTitle: string = '监测点数量统计（个）'
+    mapBack: string = require('../../assets/images/mapBackground.png')
+    gasPipeMap: string = require('../../assets/images/gasPipeMap.png')
 
     // data
     data: GasPipeMonitorData = {

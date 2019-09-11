@@ -4,6 +4,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     .grid-cell {
         flex: 1;
     }
@@ -17,13 +18,18 @@
         }
     }
     .echarts-box-2{
-        flex: 0 0 40%;
+        flex: 0 0 39%;
         height: 40vh;
-        border: 1px solid rebeccapurple;
+        .echart-wrap{
+            height: 39vh;
+        }
     }
     .echarts-box-1{
         height: 40vh;
-        border: 1px solid rebeccapurple;
+        flex: 0 0 30%;
+        .echart-wrap{
+            height: 39vh;
+        }
     }
     .bridge-analyse{
         position: absolute;

@@ -1,7 +1,11 @@
 <template>
     <div class="drainPipeMonitor-wrap">
         <div class="top-wrap">
-            <div class="item map-wrap"></div>
+            <div class="item map-wrap">
+                <div :style="{background: 'url('+ mapBack +') 100% 100% no-repeat',backgroundSize: '100% 100%'}">
+                    <img class="drain-pipe-map" :src="drainPipeMap" />
+                </div>
+            </div>
             <div class="item data-wrap">
                 <div :style="{background: 'url('+ drainPipeTitleBack +') 1% 100% no-repeat',backgroundSize: 'inherit'}">
                     <div class="title-wrap">

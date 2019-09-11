@@ -19,6 +19,8 @@ export default class About extends Vue {
     detectionContnet: string = '检测内容'
     equipmentOrganizeTitle: string = '设备布防'
     equipmentStatisticsTitle: string = '设备统计'
+    mapBack: string = require('../../assets/images/mapBackground.png')
+    thermalTubeMap: string = require('../../assets/images/thermalMap.png')
 
     // data
     data: ThermalTubeMonitorData = {

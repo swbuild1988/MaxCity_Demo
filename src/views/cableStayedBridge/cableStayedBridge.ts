@@ -15,6 +15,7 @@ export default class cableStayedBridge extends Vue {
     
     bridgeWrapBackground: string = require('../../assets/images/bridge-background.png')
     bridgeAnalyseBackground: string = require('../../assets/images/dialog-box.png')
+    echartsWrapBack: string = require('../../assets/images/chartsBg.png')
     //to prop
     bridgeTypeBackground = require('../../assets/images/bridge-frame.png')
     bridgePic = require('../../assets/images/cableStayedBridge.png')
