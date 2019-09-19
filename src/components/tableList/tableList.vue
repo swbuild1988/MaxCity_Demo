@@ -77,6 +77,12 @@
                 border-bottom: 0.1vmin solid #043F7B;
                 font-size: 1.8vmin;
             }
+            li:hover{
+                cursor: pointer;
+                div{
+                    cursor: pointer;
+                }
+            }
             .activited-li{
                 background: #152f5b;
             }

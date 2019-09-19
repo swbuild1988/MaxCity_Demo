@@ -24,6 +24,49 @@
         .menu-item{
             color: @menu;
             cursor: pointer;
+            .secondMenu{
+                display: none;
+                li{
+                    background: #004b71;                
+                    color:  #06d9ff;
+                    font-size: 1.4vmin;
+                    width: 13vmin;
+                    border: 0.1vmin solid #0397da;
+                    padding: 0.7vmin 1.4vmin;
+                    z-index: 9999;
+                    position: relative;
+                    text-align: center;
+                    border-top: none;
+                }
+                li:nth-child(1){
+                    border-top: 0.1vmin solid #0397da;
+                    border-top-left-radius: 0.4vmin;
+                    border-top-right-radius: 0.4vmin;
+                }
+                li:last-child{
+                    border-bottom-left-radius: 0.4vmin;
+                    border-bottom-right-radius: 0.4vmin;
+                }
+                li.activited{
+                    background: #8997aa;
+                    color: #2a2a2a;
+                    
+                }
+            }
+            .open{
+                display: block;
+            }
+            .hide{
+                display: none;
+            }
+            .open-icon{
+                width: 0;
+                height: 0;
+                border-width: 0.6vmin;
+                border-style: solid;
+                border-color: #0BD5FE transparent transparent transparent;
+                display: -webkit-inline-box;
+            }
         }
         .menu-item-activited{
             color: @menu-activited;
@@ -31,7 +74,7 @@
     }
     .menu-operation{
         display: flex;
-        flex: 0 0 20%;
+        flex: 0 0 21%;
         justify-content: flex-end;
         .grid-cell-operation{
             list-style: none;

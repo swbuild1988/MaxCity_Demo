@@ -7,7 +7,7 @@
 export default [
     {
         path: '/',
-        redirect: '/main'
+        redirect: '/bridgeMian'
     },
     {
         path: '/login',
@@ -71,6 +71,64 @@ export default [
                 path: '/waterPipeMonitor',
                 name: 'waterPipeMonitor',
                 component: () => import('@/views/waterPipeMonitor/waterPipeMonitor.vue')
+            },
+            {
+                path: '/equipAssetManage',
+                name: 'equipAssetManage',
+                redirect: '/equipAssetManage/waterSupply',
+                component: () => import('@/views/equipAssetManage/equipAssetManage.vue'),
+                children: [
+                    {
+                        path: '/equipAssetManage/waterSupply',
+                        name: 'waterSupply',
+                        component: () => import('@/views/waterSupply/waterSupply.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/hydrogenSulfideMonitor',
+                        name: 'hydrogenSulfideMonitor',
+                        component: () => import('@/views/hydrogenSulfideMonitor/hydrogenSulfideMonitor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/starinSensor',
+                        name: 'starinSensor',
+                        component: () => import('@/views/strainSensor/strainSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/acceleraSensor',
+                        name: 'acceleraSensor',
+                        component: () => import('@/views/acceleraSensor/acceleraSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/humiditySensor',
+                        name: 'humiditySensor',
+                        component: () => import('@/views/humiditySensor/humiditySensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/temperatureSensor',
+                        name: 'temperatureSensor',
+                        component: () => import('@/views/temperatureSensor/temperatureSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/vehicleLoadSensor',
+                        name: 'vehicleLoadSensor',
+                        component: () => import('@/views/vehicleLoadSensor/vehicleLoadSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/deflectionSensor',
+                        name: 'deflectionSensor',
+                        component: () => import('@/views/deflectionSensor/deflectionSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/anemometer',
+                        name: 'anemometer',
+                        component: () => import('@/views/anemometer/anemometer.vue')
+                    }
+                ]
+            },
+            {
+                path: '/thermodynamicChart',
+                name: 'thermodynamicChart',
+                component: () => import('@/views/thermodynamicChart/thermodynamicChart.vue')
             }
         ]
     }

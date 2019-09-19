@@ -57,7 +57,6 @@ const VueTep = `<template>
 </script>
 
 <style lang="less">
-    @import "@/assets/less/variables.less";
 
     .${dirName}-wrap {
         width: 100%;
