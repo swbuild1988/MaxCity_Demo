@@ -75,7 +75,7 @@ export default [
             {
                 path: '/equipAssetManage',
                 name: 'equipAssetManage',
-                redirect: '/equipAssetManage/waterSupply',
+                redirect: '/equipAssetManage/hydrogenSulfideMonitor',
                 component: () => import('@/views/equipAssetManage/equipAssetManage.vue'),
                 children: [
                     {
@@ -122,6 +122,16 @@ export default [
                         path: '/equipAssetManage/anemometer',
                         name: 'anemometer',
                         component: () => import('@/views/anemometer/anemometer.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/bridgeAccelera',
+                        name: 'bridgeAccelera',
+                        component: () => import('@/views/bridgeAccelera/bridgeAccelera.vue')
+                    },
+                    {
+                        path: '/monitorAlarm',
+                        name: 'monitorAlarm',
+                        component: () => import('@/views/monitorAlarm/monitorAlarm.vue')
                     }
                 ]
             },
@@ -129,7 +139,7 @@ export default [
                 path: '/thermodynamicChart',
                 name: 'thermodynamicChart',
                 component: () => import('@/views/thermodynamicChart/thermodynamicChart.vue')
-            }
+            },
         ]
     }
 ]

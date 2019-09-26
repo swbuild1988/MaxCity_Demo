@@ -12,9 +12,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/echarts": "E:\\work\\MaxCity_Demo>\"D:\\softPath\\nodejs\\\\node.exe\"  \"D:\\softPath\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^4.1.14",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
-    "echarts": "^4.2.1",
+    "echarts": "E:\\work\\MaxCity_Demo>\"D:\\softPath\\nodejs\\\\node.exe\"  \"D:\\softPath\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^4.3.0",
     "iview": "^3.0.1",
     "js-cookie": "^2.2.1",
     "style-resources-loader": "^1.2.1",
@@ -35,6 +36,7 @@
     "@vue/cli-plugin-unit-mocha": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vue/test-utils": "1.0.0-beta.29",
+    "babel-plugin-import": "E:\\work\\MaxCity_Demo>\"D:\\softPath\\nodejs\\\\node.exe\"  \"D:\\softPath\\nodejs\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^1.12.1",
     "chai": "^4.1.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",

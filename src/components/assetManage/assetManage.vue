@@ -1,6 +1,9 @@
 <template>
-    <div class="assetManage-wrap">
-        <div class="title">{{data.title}}</div>
+    <div v-show="assetManageData.isShow" class="assetManage-wrap">
+        <h3 class="title">{{data.title}}</h3>
+        <div class="close-icon-wrap">
+            <Icon type="md-close" size="27" color="#0030ff" @click="showAssetManage"/>
+        </div>
         <div class="flex-box">
             <div class="flex-item">
                 <div class="explain" v-for="(item, index) in data.explainList" :key="index">
@@ -20,7 +23,7 @@
     import { Component, Vue, Prop, Watch } from "vue-property-decorator"
     import { Getter, Action } from 'vuex-class'
     import { AssetManageData } from '@/types/components/assetManage.interface'
-    import BasicArea from '@/components/Charts/BasicArea.vue'
+    import BasicArea from '@/components/Charts/BasicAreaForBridge.vue'
     import BasicAreaData from '@/types/components/BasicArea.interface.ts'
 
     @Component({
@@ -28,10 +31,6 @@
     })
     export default class About extends Vue {
         // prop
-        @Prop({
-        required: false,
-            default: ''
-        }) name!: string
 
         @Prop({ required: true})
         assetManageData: any
@@ -47,31 +46,36 @@
             ]
         }
 
+
         equipName: BasicAreaData = {
             title: '',
             xData: [],
             series: [],
             rangeColors: ['#353f72', '#353f72'],
-            lineColor: ['#47edff'],
-            yTextColor: '#357594'
+            lineColor: ['#5E77D1'],
+            yTextColor: '#0030ff'
         } 
 
         @Watch('assetManageData', {deep: true})
         onDataChanged(newVal: any, oldVal: any) {
             this.equipName.xData = newVal.xData
             this.equipName.series = newVal.series
+            this.equipName.title = newVal.title
         }
 
+        showAssetManage(){
+            this.assetManageData.isShow = !this.assetManageData.isShow
+        }
     }
 </script>
 
 <style lang="less">
 
     .assetManage-wrap {
-        width: 62.8vmin;
-        height: 34vmin;
+        width: 30vw;
+        height: 34vh;
         border: 0.1vmin solid #47edff;
-        background: #96a6b6;
+        background: #96a6b6a6;
         border-radius: 0.4vmin;
 
         .title{
@@ -79,6 +83,11 @@
             line-height: 2;
             text-align: center;
             font-size: 2vmin;
+        }
+        .close-icon-wrap{
+            position: absolute;
+            top: 0;
+            right: 0;
         }
         .flex-box{
             display: flex;

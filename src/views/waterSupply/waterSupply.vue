@@ -1,5 +1,5 @@
 <template>
-    <div class="waterSupply-wrap">
+    <div class="waterSupply-wrap" :style="{background: 'url('+ waterSupplyWrapBackMap +') 100% 100% no-repeat', backgroundSize: '100% 100%'}">
         <assetManage class="asset-manage" :assetManageData="assetManage"/>
     </div>
 </template>

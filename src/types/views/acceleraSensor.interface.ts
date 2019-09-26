@@ -1,6 +1,10 @@
 // acceleraSensor.Data 参数类型
 export interface AcceleraSensorData {
-    pageName: string
+    toPointData: any[],
+    unnormalNum: number,
+    normalNum: number,
+    current: number,
+    isShow: boolean
 }
 
 // VUEX acceleraSensor.State 参数类型

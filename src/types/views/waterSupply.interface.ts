@@ -10,7 +10,9 @@ export interface WaterSupplyState {
 
 export interface assetManageData {
     xData: any[]
-    series: any[]
+    series: any[],
+    isShow: boolean,
+    title: string
 }
 
 // GET_DATA_ASYN 接口参数类型

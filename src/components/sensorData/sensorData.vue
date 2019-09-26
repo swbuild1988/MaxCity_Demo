@@ -1,5 +1,5 @@
 <template>
-    <div class="sensorData-wrap" :style="{background: 'url('+ data.sensorDataBack +') 100% 100% no-repeat', backgroundSize: '100%'}">
+    <div v-show="isShow" class="sensorData-wrap" :style="{background: 'url('+ data.sensorDataBack +') 100% 100% no-repeat', backgroundSize: '100%'}">
         <div class="title">{{data.title}}</div>
         <ul>
             <li v-for="(item ,index) in sensorData" :key="index" >
@@ -29,6 +29,9 @@
 
         @Prop()
         sensorData!: any[]
+
+        @Prop()
+        isShow!: boolean
 
         // data
         data: SensorDataData = {

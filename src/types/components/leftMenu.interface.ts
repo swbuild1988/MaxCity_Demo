@@ -3,7 +3,7 @@ export interface LeftMenuData {
     componentName: string,
     leftMenuBack: string,
     leftMenu: any[],
-    activeName: string,
-    openNames?: string[]
+    current: number
+    // activeName: string
 }
 

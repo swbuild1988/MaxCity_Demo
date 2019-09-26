@@ -8,13 +8,18 @@ import Axios from 'axios'
     components: { assetManage }
 })
 export default class About extends Vue {
+
+    waterSupplyWrapBackMap: string = require('../../assets/images/big-map.png')
+
     // data
     data: WaterSupplyData = {
         pageName: 'waterSupply'
     } 
     assetManage: assetManageData = {
         series: [],
-        xData: []
+        xData: [],
+        isShow: true,
+        title: '流量计m/s'
     }
 
     mounted() {
@@ -22,7 +27,7 @@ export default class About extends Vue {
     }
 
     getChartData(){
-        Axios.get("http://localhost:8080/data/equipName.json").then(res => {
+        Axios.get("http://localhost:8080/data/waterSupply.json").then(res => {
             this.assetManage.series = [],
             this.assetManage.xData = []
             let{ data } = res

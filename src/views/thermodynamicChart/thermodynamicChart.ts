@@ -1,9 +1,12 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
 import { ThermodynamicChartData } from '@/types/views/thermodynamicChart.interface'
-// import {  } from "@/components" // 组件
+import thermodynamicChart from '@/components/Charts/thermodynamic.vue'
+import Axios from 'axios'
 
-@Component({})
+@Component({
+    components: { thermodynamicChart }
+})
 export default class About extends Vue {
 
     equipAssetWrapBackgroundW: string = require('../../assets/images/big-map-back-w.png')
@@ -15,21 +18,23 @@ export default class About extends Vue {
         imgSrc: require('../../assets/images/thermodynamicBack.png')
     }
 
-    created() {
-        //
-    }
-  
-    activated() {
-        //
-    }
+    points: any[] = []
 
     mounted() {
-        //
+        this.getData()
     }
 
-    // 初始化函数
-    init() {
-        //
+    getData(){
+        Axios.get("http://localhost:8080/data/anhui-tracks.json").then((res: any) => {
+            let data  = res.data
+            this.points = [].concat.apply([], data.map(function (track: any) {
+                return track.map(function (seg:any) {
+                    return seg.coord.concat([1]);
+                });
+            }));
+        });
     }
+
+
     
 }

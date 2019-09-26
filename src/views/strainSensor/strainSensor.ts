@@ -10,18 +10,44 @@ import Axios from 'axios'
 })
 export default class About extends Vue {
 
+    strainSensorWrapBackMap: string = require('../../assets/images/bridgeAccele.png')
+
     // data
     data: StrainSensorData = {
-        pageName: 'strainSensor',
+        toPointData: [
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '28.5vw',
+                TopLen: '39vh',
+                status: 0
+            },
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '54vw',
+                TopLen: '0.5vh',
+                status: 0
+            },
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '83.4vw',
+                TopLen: '13vh',
+                status: 0
+            },
+        ],
+        current: -1
     }
     strainSensorInfo = [
         { src : require('../../assets/images/strain-icon.png'), describe : '应变' , value : '15%' },
         { src : require('../../assets/images/strain-icon.png'), describe : '应变' , value : '10%' }
     ]
+
+    assetLeftLen: string = ''
+    assetTopLen: string = ''
     
     assetManage: assetManageData = {
         series: [],
-        xData: []
+        xData: [],
+        isShow: false
     }
 
     mounted() {
@@ -48,6 +74,49 @@ export default class About extends Vue {
             if (!(i % len)) str += '\n';  
         }  
         return str 
+    }
+
+    showAsset(index: number){
+        this.data.current = index
+        this.assetManage.isShow = !this.assetManage.isShow
+        //视窗高度 方便vh vw 与 px的换算
+        let clientWidth = document.documentElement.clientWidth
+        let clientHeight = document.documentElement.clientHeight
+        let dom = <HTMLDivElement> document.getElementsByClassName('mark-point')[index]
+        //控制左右
+        if(dom.offsetLeft<=clientWidth/2){
+            //左半部分，往右显示
+            if(dom.offsetTop<=clientHeight/2){
+                //上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
+                if(Number(dom.offsetTop+25)>=clientHeight/2){
+                    this.assetTopLen = clientHeight/2 + 'px'
+                }else{
+                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+                }
+
+            }else{
+                // 下半部分，往上显示
+                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
+                this.assetLeftLen = Number(dom.offsetTop-340)+'px'
+            }
+
+        }else{
+            //右半部分，往左显示
+            if(dom.offsetTop<=clientHeight/2){
+                //上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
+                if(Number(dom.offsetTop+25)>=clientHeight/2){
+                    this.assetTopLen = clientHeight/2 + 'px'
+                }else{
+                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+                }
+            }else{
+                // 下半部分，往上显示
+                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
+                this.assetTopLen = Number(dom.offsetTop-340)+'px'
+            }
+        }
     }
     
 }

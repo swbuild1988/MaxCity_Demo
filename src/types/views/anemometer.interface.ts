@@ -1,6 +1,7 @@
 // anemometer.Data 参数类型
 export interface AnemometerData {
-    pageName: string
+    toPointData: any[],
+    current: number
 }
 
 // VUEX anemometer.State 参数类型
@@ -10,7 +11,9 @@ export interface AnemometerState {
 
 export interface assetManageData {
     xData: any[]
-    series: any[]
+    series: any[],
+    isShow: boolean,
+    title: string
 }
 
 // GET_DATA_ASYN 接口参数类型

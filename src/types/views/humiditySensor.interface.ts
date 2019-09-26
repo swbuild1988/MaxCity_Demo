@@ -1,6 +1,7 @@
 // humiditySensor.Data 参数类型
 export interface HumiditySensorData {
-    pageName: string
+    toPointData: any[],
+    current: number
 }
 
 // VUEX humiditySensor.State 参数类型
@@ -10,7 +11,9 @@ export interface HumiditySensorState {
 
 export interface assetManageData {
     xData: any[]
-    series: any[]
+    series: any[],
+    isShow: boolean,
+    title: string
 }
 
 // GET_DATA_ASYN 接口参数类型

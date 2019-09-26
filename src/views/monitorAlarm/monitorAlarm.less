@@ -1,0 +1,64 @@
+@import "../../assets/less/variables.less";
+
+.monitorAlarm-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .title{
+        text-align: center;
+        line-height: 2;
+        font-size: 3.6vmin;
+        color: @monitor-main-color;
+    }
+    .flex-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        .item-wrap{
+            flex: 0 0 20%;
+            margin-bottom: 1vmin;
+            .monitor-item{
+                width: 90%;
+                margin: 0 auto;
+                border: 1px solid #385f95;
+                background: #4040401f;
+                .title{
+                    font-size: 2.4vmin;
+                    color: @monitor-main-color;
+                }
+                .item-container{
+                    display: flex;
+                    .img-wrap{
+                        flex: 0 0 40%;
+                        text-align: center;
+                    }
+                    .info-wrap{
+                        flex: 0 0 60%;
+                        color: @monitor-main-color;
+                        font-size: 1.8vmin;
+                        .contrast{
+                            color: #ff1e1e;
+                        }
+                    }
+                }
+                .alarm-btn,.historyData-btn{
+                    color: #fff;
+                    padding: 0.7vmin 1.4vmin;
+                    border-radius: 0.8vmin;
+                    margin-bottom: 2vmin;
+                }
+                .alarm-btn{
+                    background: -webkit-linear-gradient(right,#ff1e1e,#ff7070);
+                    margin-left: 3vmin;
+                }
+                .historyData-btn{
+                    background: -webkit-linear-gradient(right,#1e8dff,#73b9ff);
+                    margin-left: 8vmin;
+                }
+            }
+        }
+    }
+    // .flex-wrap{
+    //     // display: flex;
+    //     // flex-wrap: wrap;
+    // }
+}

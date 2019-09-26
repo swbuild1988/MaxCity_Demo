@@ -8,10 +8,10 @@ const resolve = dir => {
 const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/'
 
 module.exports = {
-    chainWebpack: config => {
-		const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-		types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
-	},
+    // chainWebpack: config => {
+	// 	const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+	// 	types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+	// },
 
     baseUrl: BASE_URL,
 
@@ -29,6 +29,13 @@ module.exports = {
 
     // 开启 生产环境的 source map?
     productionSourceMap: false,
+
+    
+    configureWebpack: {
+        externals: {
+            "BMap": "BMap"
+        }
+    },
 
     chainWebpack: config => {
         // 配置路径别名

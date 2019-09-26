@@ -1,6 +1,7 @@
 // temperatureSensor.Data 参数类型
 export interface TemperatureSensorData {
-    pageName: string
+    toPointData: any[],
+    current: number
 }
 
 // VUEX temperatureSensor.State 参数类型
@@ -10,7 +11,9 @@ export interface TemperatureSensorState {
 
 export interface assetManageData {
     xData: any[]
-    series: any[]
+    series: any[],
+    isShow: boolean,
+    title: string
 }
 
 

@@ -1,6 +1,9 @@
 // hydrogenSulfideMonitor.Data 参数类型
 export interface HydrogenSulfideMonitorData {
-    pageName: string
+    toPointData: any[],
+    unnormalNum: number,
+    normalNum: number,
+    current: number
 }
 
 // VUEX hydrogenSulfideMonitor.State 参数类型
@@ -10,7 +13,9 @@ export interface HydrogenSulfideMonitorState {
 
 export interface assetManageData {
     xData: any[]
-    series: any[]
+    series: any[],
+    isShow: boolean,
+    title: string
 }
 
 // GET_DATA_ASYN 接口参数类型

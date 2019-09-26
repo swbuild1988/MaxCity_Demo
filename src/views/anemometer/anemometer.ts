@@ -10,10 +10,36 @@ import Axios from 'axios'
 })
 export default class About extends Vue {
 
+    anemometerWrapBackMap: string = require('../../assets/images/temperaturWrap.png')
+
     // data
     data: AnemometerData = {
-        pageName: 'anemometer'
+        toPointData: [
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '13vw',
+                TopLen: '9vh',
+                status: 0
+            },
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '62.5vw',
+                TopLen: '49vh',
+                status: 0
+            },
+            {
+                picUrl: require('../../assets/images/markpoint-blue-icon.png'),
+                leftLen: '35vw',
+                TopLen: '61vh',
+                status: 0
+            }
+        ],
+        current: -1
     }
+
+    assetLeftLen: string = ''
+    assetTopLen: string = ''
+    
 
     strainSensorInfo = [
         { src : require('../../assets/images/accele-icon.png'), describe : '风速仪' , value : '1m/s' },
@@ -22,7 +48,9 @@ export default class About extends Vue {
     
     assetManage: assetManageData = {
         series: [],
-        xData: []
+        xData: [],
+        isShow: false,
+        title: '风速仪km/h'
     }
 
     mounted() {
@@ -30,7 +58,7 @@ export default class About extends Vue {
     }
 
     getChartData(){
-        Axios.get("http://localhost:8080/data/equipName.json").then(res => {
+        Axios.get("http://localhost:8080/data/anemometer.json").then(res => {
             this.assetManage.series = [],
             this.assetManage.xData = []
             let{ data } = res
@@ -49,6 +77,49 @@ export default class About extends Vue {
             if (!(i % len)) str += '\n';  
         }  
         return str 
+    }
+
+    showAsset(index: number){
+        this.data.current = index
+        this.assetManage.isShow = !this.assetManage.isShow
+        //视窗高度 方便vh vw 与 px的换算
+        let clientWidth = document.documentElement.clientWidth
+        let clientHeight = document.documentElement.clientHeight
+        let dom = <HTMLDivElement> document.getElementsByClassName('mark-point')[index]
+        //控制左右
+        if(dom.offsetLeft<=clientWidth/2){
+            //左半部分，往右显示
+            if(dom.offsetTop<=clientHeight/2){
+                //上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
+                if(Number(dom.offsetTop+25)>=clientHeight/2){
+                    this.assetTopLen = clientHeight/2 + 'px'
+                }else{
+                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+                }
+
+            }else{
+                // 下半部分，往上显示
+                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
+                this.assetTopLen = Number(dom.offsetTop-340)+'px'
+            }
+
+        }else{
+            //右半部分，往左显示
+            if(dom.offsetTop<=clientHeight/2){
+                //上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
+                if(Number(dom.offsetTop+25)>=clientHeight/2){
+                    this.assetTopLen = clientHeight/2 + 'px'
+                }else{
+                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+                }
+            }else{
+                // 下半部分，往上显示
+                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
+                this.assetTopLen = Number(dom.offsetTop-340)+'px'
+            }
+        }
     }
     
 }

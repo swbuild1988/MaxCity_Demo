@@ -11,7 +11,6 @@ export default class About extends Vue {
     
     equipAssetWrapBackgroundW: string = require('../../assets/images/big-map-back-w.png')
     equipAssetWrapBackgroundN: string = require('../../assets/images/big-map-back-n.png')
-    equipAssetWrapBackMap: string = require('../../assets/images/big-map.png')
 
     data: EquipAssetManageData = {
         pageName: 'equipAssetManage'
