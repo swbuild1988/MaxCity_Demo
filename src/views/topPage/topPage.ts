@@ -11,7 +11,7 @@ export default class About extends Vue {
         { 
             menuName: '前端感知系统', 
             menuPath: '',
-            secondMenu:[
+            secondMenu: [
                 { secondMenuName: '桥梁安全检测', secondMenuPath: '/bridgeMian' },
                 { secondMenuName: '供水管监测', secondMenuPath: '/feedPipeMonitor' },
                 { secondMenuName: '中水管监测', secondMenuPath: '/waterPipeMonitor' },
@@ -60,7 +60,7 @@ export default class About extends Vue {
         pageName: 'topPage'
     }
     $router: any;
-    choosedSecondMenu(path: string){
+    choosedSecondMenu(path: string) {
         this.$router.push(path)
     }
     

@@ -34,10 +34,10 @@ export default class About extends Vue {
             { range: '具有高风险的主输水管及互联互通管' }
         ],
         disorderTableData: [
-            { key:0, name: '内核外径',properties: ['80cm',  '135cm',  '180cm',  '222cm'] },
-            { key:1, name: '使用管径范围', properties: ['100mm', '125mm', '203mm', '254mm及以上']},
-            { key:2, name: '电源',  properties: ['一次锂电池', '充电锂电池']},
-            { key:3, name: '最长运行时间', properties: ['29.5小时', '55小时', '115小时', '115小时'] }
+            { key: 0, name: '内核外径', properties: ['80cm',  '135cm',  '180cm',  '222cm'] },
+            { key: 1, name: '使用管径范围', properties: ['100mm', '125mm', '203mm', '254mm及以上']},
+            { key: 2, name: '电源',  properties: ['一次锂电池', '充电锂电池']},
+            { key: 3, name: '最长运行时间', properties: ['29.5小时', '55小时', '115小时', '115小时'] }
         ],
         runEnvirData: [
             { key: 0, name: '最大压力', properties: ['138bar（2000psi0）'] },

@@ -11,12 +11,12 @@ import Axios from 'axios'
 @Component({
     components: {info, MultiBar, MultiLine}
 })
-export default class cableStayedBridge extends Vue {
+export default class About extends Vue {
     
     bridgeWrapBackground: string = require('../../assets/images/bridge-background.png')
     bridgeAnalyseBackground: string = require('../../assets/images/dialog-box.png')
     echartsWrapBack: string = require('../../assets/images/chartsBg.png')
-    //to prop
+    // to prop
     bridgeTypeBackground = require('../../assets/images/bridge-frame.png')
     bridgePic = require('../../assets/images/cableStayedBridge.png')
 
@@ -117,8 +117,8 @@ export default class cableStayedBridge extends Vue {
 
     getChartsData() {
         Axios.get("http://localhost:8080/data/tempAndPower.json").then(res => {
-            this.tempAndWind.legendData = [],
-            this.tempAndWind.series = [],
+            this.tempAndWind.legendData = []
+            this.tempAndWind.series = []
             this.tempAndWind.xData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -144,7 +144,7 @@ export default class cableStayedBridge extends Vue {
         })
         // 应变
         Axios.get("http://localhost:8080/data/concreteStains.json").then(res => {
-            this.multibar.series = [],
+            this.multibar.series = []
             this.multibar.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -154,8 +154,8 @@ export default class cableStayedBridge extends Vue {
         })
         // 监测参数
         Axios.get("http://localhost:8080/data/sensorType.json").then(res => {
-            this.observeParams.legendData = [],
-            this.observeParams.series = [],
+            this.observeParams.legendData = []
+            this.observeParams.series = []
             this.observeParams.xData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {

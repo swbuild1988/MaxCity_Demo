@@ -10,7 +10,7 @@ export default class About extends Vue {
 
     // data
     data: MonitorAlarmData = {
-        monitorData:[
+        monitorData: [
             { 
                 title: '排水管网',
                 imgSrc: require('../../assets/images/drainage-network.png'),
@@ -26,7 +26,7 @@ export default class About extends Vue {
                     { key: '水质', val: '良好' },
                     { key: '水位', val: '↑30', contrast: '↓10' },
                     { key: '压力', val: '30kg·f/cm' },
-                    { key: '流量', val:'25立方米/小时' }
+                    { key: '流量', val: '25立方米/小时' }
                 ]
             },
             { 
@@ -86,23 +86,6 @@ export default class About extends Vue {
                 ]
             },
         ]
-    }
-
-    created() {
-        //
-    }
-  
-    activated() {
-        //
-    }
-
-    mounted() {
-        //
-    }
-
-    // 初始化函数
-    init() {
-        //
     }
     
 }

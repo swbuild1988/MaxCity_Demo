@@ -7,7 +7,7 @@
 export default [
     {
         path: '/',
-        redirect: '/bridgeMian'
+        redirect: '/login'
     },
     {
         path: '/login',
@@ -75,7 +75,7 @@ export default [
             {
                 path: '/equipAssetManage',
                 name: 'equipAssetManage',
-                redirect: '/equipAssetManage/hydrogenSulfideMonitor',
+                redirect: '/equipAssetManage/starinSensor',
                 component: () => import('@/views/equipAssetManage/equipAssetManage.vue'),
                 children: [
                     {
@@ -94,6 +94,11 @@ export default [
                         component: () => import('@/views/strainSensor/strainSensor.vue')
                     },
                     {
+                        path: '/equipAssetManage/starinSensorBridge',
+                        name: 'starinSensorBridge',
+                        component: () => import('@/views/strainSensorBridge/strainSensorBridge.vue')
+                    },
+                    {
                         path: '/equipAssetManage/acceleraSensor',
                         name: 'acceleraSensor',
                         component: () => import('@/views/acceleraSensor/acceleraSensor.vue')
@@ -104,9 +109,19 @@ export default [
                         component: () => import('@/views/humiditySensor/humiditySensor.vue')
                     },
                     {
+                        path: '/equipAssetManage/humiditySensorBridge',
+                        name: 'humiditySensorBridge',
+                        component: () => import('@/views/humiditySensorBridge/humiditySensorBridge.vue')
+                    },
+                    {
                         path: '/equipAssetManage/temperatureSensor',
                         name: 'temperatureSensor',
                         component: () => import('@/views/temperatureSensor/temperatureSensor.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/temperatureSensorBridge',
+                        name: 'temperatureSensorBridge',
+                        component: () => import('@/views/temperatureSensorBridge/temperatureSensorBridge.vue')
                     },
                     {
                         path: '/equipAssetManage/vehicleLoadSensor',
@@ -114,14 +129,29 @@ export default [
                         component: () => import('@/views/vehicleLoadSensor/vehicleLoadSensor.vue')
                     },
                     {
+                        path: '/equipAssetManage/vehicleLoadSensorBridge',
+                        name: 'vehicleLoadSensorBridge',
+                        component: () => import('@/views/vehicleLoadSensorBridge/vehicleLoadSensorBridge.vue')
+                    },
+                    {
                         path: '/equipAssetManage/deflectionSensor',
                         name: 'deflectionSensor',
                         component: () => import('@/views/deflectionSensor/deflectionSensor.vue')
                     },
                     {
+                        path: '/equipAssetManage/deflectionSensorBridge',
+                        name: 'deflectionSensorBridge',
+                        component: () => import('@/views/deflectionSensorBridge/deflectionSensorBridge.vue')
+                    },
+                    {
                         path: '/equipAssetManage/anemometer',
                         name: 'anemometer',
                         component: () => import('@/views/anemometer/anemometer.vue')
+                    },
+                    {
+                        path: '/equipAssetManage/anemometerBridge',
+                        name: 'anemometerBridge',
+                        component: () => import('@/views/anemometerBridge/anemometerBridge.vue')
                     },
                     {
                         path: '/equipAssetManage/bridgeAccelera',

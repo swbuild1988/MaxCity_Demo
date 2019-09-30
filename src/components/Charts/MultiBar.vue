@@ -25,9 +25,7 @@
         }
 
         drawMultiLine() {
-            this.myChart = (this as any).$echarts.init(
-                <HTMLDivElement | HTMLCanvasElement> document.getElementById(this.id)
-            );
+            this.myChart = (this as any).$echarts.init(document.getElementById(this.id) as HTMLCanvasElement),
             this.options = {
                 title: {
                     text: this.data.title,
@@ -72,7 +70,7 @@
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{
+                        lineStyle: {
                             color: ['#0f3069'],
                         }
                     }
@@ -88,11 +86,10 @@
                                     y: 0,
                                     x2: 0,
                                     y2: 1,
-                                    colorStops: [{
-                                        offset: 0, color: '#2bfaff' // 0% 处的颜色
-                                    }, {
-                                        offset: 1, color: '#005559' // 100% 处的颜色
-                                    }],
+                                    colorStops: [
+                                        { offset: 0, color: '#2bfaff' }, 
+                                        { offset: 1, color: '#005559' }
+                                    ],
                                     globalCoord: false // 缺省为 false
                                 },
                                 // barBorderRadius:[0,0,0,10]
@@ -103,75 +100,78 @@
                         data: this.data.series
                     },
                     { 
-                        name:'a',
-                        tooltip:{
-                        show:false 
+                        name: 'a',
+                        tooltip: {
+                            show: false 
                         },
                         type: 'bar',
                         // barMaxWidth: '10%',
                         barWidth: 6,
-                        itemStyle:{ 
-                            normal:{
+                        itemStyle: { 
+                            normal: {
                                 color: {
                                     type: 'linear',
                                     x: 0,
                                     y: 0,
                                     x2: 0,
                                     y2: 1,
-                                    colorStops: [{
-                                        offset: 0, color: '#2bfaff' // 0% 处的颜色
-                                    }, {
-                                        offset: 1, color: '#005559' // 100% 处的颜色
-                                    }],
+                                    colorStops: [
+                                        {
+                                            offset: 0, color: '#2bfaff' // 0% 处的颜色
+                                        }, 
+                                        {
+                                            offset: 1, color: '#005559' // 100% 处的颜色
+                                        }
+                                    ],
                                     globalCoord: false // 缺省为 false
                                 },
-                                barBorderRadius:[0,0,90,0]
+                                barBorderRadius: [ 0, 0, 90, 0 ]
                             }
                         },
                         data: this.data.series,
-                        barGap:0
+                        barGap: 0
                     },
                     { 
-                        name:'b',
-                        tooltip:{
-                        show:false 
+                        name: 'b',
+                        tooltip: {
+                            show: false 
                         },
                         type: 'pictorialBar',
                         itemStyle: {
                             normal: {
                                 color: '#2bfaff', 
-                                borderWidth:1,
-                                borderColor:'#2bfaff'
+                                borderWidth: 1,
+                                borderColor: '#2bfaff'
                             }
                         },
                         symbol: 'triangle',
                         symbolRotate: -20,
-                        symbolSize: ['10','10'],
-                        symbolOffset:['-6','-8'],
+                        symbolSize: ['10', '10'],
+                        symbolOffset: ['-6', '-8'],
                         symbolPosition: 'end',
                         data: this.data.series,
-                        z:3
+                        z: 3
                     },
                     { 
-                        name:'c',
-                        tooltip:{
-                        show:false 
+                        name: 'c',
+                        tooltip: {
+                            show: false 
                         },
                         type: 'pictorialBar',
                         itemStyle: {
                             normal: {
                                 color: '#2bfaff', 
-                                borderWidth:1,
-                                borderColor:'#2bfaff'
+                                borderWidth: 1,
+                                borderColor: '#2bfaff'
                             }
                         },
                         symbol: 'rect',
                         symbolRotate: 0,
-                        symbolSize: ['16','10'],
-                        symbolOffset:['4.4','-7.8'],
+                        symbolSize: ['16', '10'],
+                        symbolOffset: ['4.4', '-7.8'],
                         symbolPosition: 'end',
                         data: this.data.series,
-                        z:3
+                        z: 3
                     }
                 ]
             },
@@ -185,16 +185,15 @@
         }
 
         getFontSize(val: string|number) {
-            if ( <number> val ) {
+            if ( val as number ) {
                 return val
             } else {
-                if (( <string> val ).indexOf('%') > 0) {
-                    let tmp = parseFloat(( <string> val).replace('%', '')) / 100;
+                if (( val as string ).indexOf('%') > 0) {
+                    let tmp = parseFloat(( val as string ).replace('%', '')) / 100;
                     let height = (this.$refs.multiBar as HTMLDivElement | HTMLCanvasElement).offsetHeight;
                     return Math.round(height * tmp);
                 }
             }
-			return 0;
 		}
     }
 </script>

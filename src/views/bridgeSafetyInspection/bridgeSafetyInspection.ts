@@ -119,8 +119,8 @@ export default class About extends Vue {
     getChartsData() {
         // 温度/力度
         Axios.get("http://localhost:8080/data/tempAndWind.json").then(res => {
-            this.tempAndWind.legendData = [],
-            this.tempAndWind.series = [],
+            this.tempAndWind.legendData = []
+            this.tempAndWind.series = []
             this.tempAndWind.xData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -146,7 +146,7 @@ export default class About extends Vue {
         })
         // 应变
         Axios.get("http://localhost:8080/data/strains.json").then(res => {
-            this.multibar.series = [],
+            this.multibar.series = []
             this.multibar.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -156,8 +156,8 @@ export default class About extends Vue {
         })
         // 监测参数
         Axios.get("http://localhost:8080/data/observeParamData.json").then(res => {
-            this.observeParams.legendData = [],
-            this.observeParams.series = [],
+            this.observeParams.legendData = []
+            this.observeParams.series = []
             this.observeParams.xData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {

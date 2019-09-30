@@ -40,7 +40,7 @@
             idx: null
         }
 
-        choosedLi(index: number){
+        choosedLi(index: number) {
             this.data.idx = index
         }
 

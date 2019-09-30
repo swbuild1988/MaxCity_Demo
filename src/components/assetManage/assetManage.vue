@@ -63,7 +63,7 @@
             this.equipName.title = newVal.title
         }
 
-        showAssetManage(){
+        showAssetManage() {
             this.assetManageData.isShow = !this.assetManageData.isShow
         }
     }

@@ -1,6 +1,5 @@
 import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
-import { HydrogenSulfideMonitorData, assetManageData } from '@/types/views/hydrogenSulfideMonitor.interface'
+import { HydrogenSulfideMonitorData, AssetManageData } from '@/types/views/hydrogenSulfideMonitor.interface'
 import assetManage from '@/components/assetManage/assetManage.vue'
 import Axios from 'axios'
 
@@ -49,10 +48,10 @@ export default class About extends Vue {
         current: 0
     }
 
-    assetLeftLen: string = '0vw'
-    assetTopLen: string = '0vh'
+    assetLeftLen: string = '0px'
+    assetTopLen: string = '0px'
 
-    assetManage: assetManageData = {
+    assetManage: AssetManageData = {
         series: [],
         xData: [],
         isShow: false,
@@ -66,7 +65,7 @@ export default class About extends Vue {
     
     
 
-    getChartData(){
+    getChartData() {
         Axios.get("http://localhost:8080/data/hydrogenSulfideMonitor.json").then(res => {
             this.assetManage.series = []
             this.assetManage.xData = []
@@ -79,64 +78,66 @@ export default class About extends Vue {
     }
 
     formatter(val: string, len: number) {
-        let strs = val.split(''); //字符串数组  
+        let strs = val.split(''); // 字符串数组  
         let str = ''  
-        for (let i = 0, s; s = strs[i++];) { //遍历字符串数组  
+        for (let i = 0, s; s = strs[i++];) { // 遍历字符串数组  
             str += s;  
-            if (!(i % len)) str += '\n';  
+            if (!(i % len)) {
+                str += '\n';
+            }   
         }  
         return str 
     }
 
-    getStatistics(){
-        this.data.toPointData.forEach(item=>{
-            if(item.status==0){
+    getStatistics() {
+        this.data.toPointData.forEach( item => {
+            if (item.status === 0) {
                 this.data.unnormalNum++
-            }else if(item.status==1){
+            } else if (item.status === 1) {
                 this.data.normalNum++
             }
         })
     }
 
-    showAsset(index: number){
+    showAsset(index: number) {
         this.data.current = index
         this.assetManage.isShow = !this.assetManage.isShow
-        //视窗高度 方便vh vw 与 px的换算
+        // 视窗高度 方便vh vw 与 px的换算
         let clientWidth = document.documentElement.clientWidth
         let clientHeight = document.documentElement.clientHeight
-        let dom = <HTMLDivElement> document.getElementsByClassName('mark-point')[index]
-        //控制左右
-        if(dom.offsetLeft<=clientWidth/2){
-            //左半部分，往右显示
-            if(dom.offsetTop<=clientHeight/2){
-                //上半部分，往下显示
-                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
-                if(Number(dom.offsetTop+25)>=clientHeight/2){
-                    this.assetTopLen = clientHeight/2 + 'px'
-                }else{
-                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+        let dom = (document.getElementsByClassName('mark-point')[index] as HTMLDivElement)
+        // 控制左右
+        if ( dom.offsetLeft <= clientWidth / 2 ) {
+            // 左半部分，往右显示
+            if ( dom.offsetTop <= clientHeight / 2 ) {
+                // 上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft + 25 ) + 'px'
+                if (Number(dom.offsetTop + 25) >= clientHeight / 2 ) {
+                    this.assetTopLen = clientHeight / 2 + 'px'
+                } else {
+                    this.assetTopLen = Number( dom.offsetTop + 25 ) + 'px'
                 }
 
-            }else{
+            } else {
                 // 下半部分，往上显示
-                this.assetLeftLen = Number(dom.offsetLeft+25)+'px'
-                this.assetTopLen = Number(dom.offsetTop-340)+'px'
+                this.assetLeftLen = Number(dom.offsetLeft + 25) + 'px'
+                this.assetTopLen = Number(dom.offsetTop - 340) + 'px'
             }
 
-        }else{
-            //右半部分，往左显示
-            if(dom.offsetTop<=clientHeight/2){
-                //上半部分，往下显示
-                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
-                if(Number(dom.offsetTop+25)>=clientHeight/2){
-                    this.assetTopLen = clientHeight/2 + 'px'
-                }else{
-                    this.assetTopLen = Number(dom.offsetTop+25) + 'px'
+        } else {
+            // 右半部分，往左显示
+            if ( dom.offsetTop <= clientHeight / 2 ) {
+                // 上半部分，往下显示
+                this.assetLeftLen = Number(dom.offsetLeft - 580 ) + 'px'
+                if ( Number(dom.offsetTop + 25) >= clientHeight / 2 ) {
+                    this.assetTopLen = clientHeight / 2 + 'px'
+                } else {
+                    this.assetTopLen = Number(dom.offsetTop + 25) + 'px'
                 }
-            }else{
+            } else {
                 // 下半部分，往上显示
-                this.assetLeftLen = Number(dom.offsetLeft-580)+'px'
-                this.assetTopLen = Number(dom.offsetTop-340)+'px'
+                this.assetLeftLen = Number(dom.offsetLeft - 580 ) + 'px'
+                this.assetTopLen = Number(dom.offsetTop - 340) + 'px'
             }
         }
     }

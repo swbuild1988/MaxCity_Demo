@@ -1,6 +1,5 @@
 <template>
     <div class="acceleraSensor-wrap" :style="{background: 'url('+ acceleraSensorWrapBackMap +') 100% 100% no-repeat', backgroundSize: '100% 100%'}">
-        <!-- <assetManage class="asset-manage" :assetManageData="assetManage"/> -->
         <template v-for="(element, idx) in strainSensorInfoData">
             <sensorData class="sensor-data" 
                 :key="element.keyID+'-'+idx" 
@@ -28,6 +27,8 @@
                 故障：{{data.unnormalNum}}
             </div>
         </div>
+
+        
     </div>
 </template>
 

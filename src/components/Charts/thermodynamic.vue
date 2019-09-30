@@ -29,14 +29,13 @@
         }
 
         drawMultiLine() {
-            this.myChart = (this as any).$echarts.init(
-                <HTMLDivElement | HTMLCanvasElement> document.getElementById(this.id)
-            );
-
+            this.myChart = (this as any).$echarts.init(document.getElementById(this.id) as HTMLCanvasElement),
             this.options = {
                 animation: false,
                 bmap: {
-                    center: [120.13066322374, 30.240018034923],
+                    // center: [120.13066322374, 30.240018034923],
+                    center: [117.316775, 31.884908333],
+                    // center: [117.13066322374,31.240018034923],
                     zoom: 14,
                     roam: true
                 },
@@ -59,8 +58,6 @@
                     blurSize: 6
                 }]
             };
-
-
 
             // 加载默认参数
             (this as any).myChart.setOption(this.options);

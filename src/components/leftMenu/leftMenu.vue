@@ -109,7 +109,7 @@
             ],
             current: -1,
         }
-        goToModule(path: string, index: number){
+        goToModule(path: string, index: number) {
             this.data.current = -1
             this.$router.push(path)
             this.data.current = index
@@ -126,7 +126,7 @@
             color: #2d8cf0;
             li{
                 list-style: none;
-                line-height: 1.8;
+                line-height: 3.5vmin;
             }
             .first-menu-li .toggle-icon,.second-menu-li .toggle-icon{
                 content: '';
@@ -169,16 +169,16 @@
                         padding-left: 3vh;
                         .third-menu-li{
                             height: 0;
-                            line-height: 1.5;
+                            line-height: 3.5vmin;
                             overflow: hidden;
-                            font-size: 1.6vh;
+                            font-size     : 1.6vh;
                             cursor: pointer;
                             padding-left: 3vh;
                         }
                         .active-menu{
                             color: @menu-activited;
                             background: #586D8A;
-                            line-height: 1.5;
+                            line-height: 3.5vmin;
                         }
                     }
                 }

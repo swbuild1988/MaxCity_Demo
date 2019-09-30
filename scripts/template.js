@@ -117,7 +117,7 @@ const mutations: MutationTree<${capPirName}State> = {
             return key in obj;
         }
         for (const key in data) {
-            if(isValidKey(key, data)){
+            if (isValidKey(key, data))  {
                 state[key] = data[key]
             }
         }

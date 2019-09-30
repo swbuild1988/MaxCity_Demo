@@ -25,9 +25,7 @@
         }
 
         drawMultiLine() {
-            this.myChart = (this as any).$echarts.init(
-                <HTMLDivElement | HTMLCanvasElement> document.getElementById(this.id)
-            );
+            this.myChart = (this as any).$echarts.init(document.getElementById(this.id) as HTMLCanvasElement),
             this.options = {
                 title: {
                     text: this.data.title,
@@ -73,7 +71,7 @@
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{
+                        lineStyle: {
                             color: ['#0f3069'],
                         }
                     }
@@ -91,16 +89,15 @@
         }
 
         getFontSize(val: string|number) {
-            if ( <number> val ) {
+            if ( val as number ) {
                 return val
             } else {
-                if (( <string> val ).indexOf('%') > 0) {
-                    let tmp = parseFloat(( <string> val).replace('%', '')) / 100;
-                    let height = (this.$refs.labelRotationBar as HTMLDivElement | HTMLCanvasElement).offsetHeight;
+                if (( val as string ).indexOf('%') > 0) {
+                    let tmp = parseFloat(( val as string ).replace('%', '')) / 100;
+                    let height = (this.$refs.basicArea as HTMLDivElement | HTMLCanvasElement).offsetHeight;
                     return Math.round(height * tmp);
                 }
             }
-			return 0;
 		}
     }
 </script>

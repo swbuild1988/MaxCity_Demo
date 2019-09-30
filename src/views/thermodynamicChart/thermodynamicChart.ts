@@ -24,17 +24,20 @@ export default class About extends Vue {
         this.getData()
     }
 
-    getData(){
+    getData() {
         Axios.get("http://localhost:8080/data/anhui-tracks.json").then((res: any) => {
             let data  = res.data
-            this.points = [].concat.apply([], data.map(function (track: any) {
-                return track.map(function (seg:any) {
+            this.points = [].concat.apply([], data.map( (track: any) => {
+                return track.map( (seg: any) => {
                     return seg.coord.concat([1]);
-                });
-            }));
+                } )
+            } ))
+            // this.points = [].concat.apply([], data.map(function(track: any) {
+            //     return track.map(function(seg: any) {
+            //         return seg.coord.concat([1]);
+            //     });
+            // }));
         });
     }
-
-
     
 }

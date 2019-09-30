@@ -1,7 +1,6 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
 import { EquipAssetManageData } from '@/types/views/equipAssetManage.interface'
-// import {  } from "@/components" // 组件
 import leftMenu from '@/components/leftMenu/leftMenu.vue'
 
 @Component({

@@ -1,12 +1,10 @@
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { AcceleraSensorData, assetManageData } from '@/types/views/acceleraSensor.interface'
-import assetManage from '@/components/assetManage/assetManage.vue'
+import { AcceleraSensorData } from '@/types/views/acceleraSensor.interface'
 import sensorData from '@/components/sensorData/sensorData.vue'
-import Axios from 'axios'
 
 @Component({
-    components: { assetManage, sensorData }
+    components: { sensorData }
 })
 export default class About extends Vue {
 
@@ -57,8 +55,8 @@ export default class About extends Vue {
         isShow: false
     }
 
-    assetLeftLen: string = '0vw'
-    assetTopLen: string = '0vh'
+    assetLeftLen: string = '0px'
+    assetTopLen: string = '0px'
 
     strainSensorInfoData = [
         {
@@ -104,58 +102,30 @@ export default class About extends Vue {
             keyID: 5
         },
     ]
-    
-    assetManage: assetManageData = {
-        series: [],
-        xData: []
-    }
 
     mounted() {
-        this.getChartData()
         this.getStatistics()
     }
 
-    getChartData(){
-        Axios.get("http://localhost:8080/data/acceleraSensor.json").then(res => {
-            this.assetManage.series = [],
-            this.assetManage.xData = []
-            let{ data } = res
-            data.result.forEach((element: any) => {
-                this.assetManage.xData.push(this.formatter(element.key, 4))
-                this.assetManage.series.push(element.val)
-            })
-        })
-    }
-
-    formatter(val: string, len: number) {
-        let strs = val.split(''); //字符串数组  
-        let str = ''  
-        for (let i = 0, s; s = strs[i++];) { //遍历字符串数组  
-            str += s;  
-            if (!(i % len)) str += '\n';  
-        }  
-        return str 
-    }
-
-    getStatistics(){
-        this.data.toPointData.forEach(item=>{
-            if(item.status==0){
+    getStatistics() {
+        this.data.toPointData.forEach(item => {
+            if (item.status === 0) {
                 this.data.unnormalNum++
-            }else if(item.status==1){
+            } else if (item.status === 1) {
                 this.data.normalNum++
             }
         })
     }
 
-    showAsset(index: number){
+    showAsset(index: number) {
         this.data.current = index
         this.data.isShow = !this.data.isShow
-        let dom = <HTMLDivElement> document.getElementsByClassName('mark-point')[index]
-        this.assetTopLen = dom.offsetTop-101 + 'px'
-        this.assetLeftLen = dom.offsetLeft-55 + 'px'
+        let dom = (document.getElementsByClassName('mark-point')[index] as HTMLDivElement)
+        this.assetTopLen = dom.offsetTop - 101 + 'px'
+        this.assetLeftLen = dom.offsetLeft - 55 + 'px'
     }
 
-    toBirdgeAccele(){
+    toBirdgeAccele() {
         this.$router.push('/equipAssetManage/bridgeAccelera')
     }
     

@@ -69,10 +69,10 @@ export default class About extends Vue {
         this.getChartsData()
     }
 
-    getChartsData(){
+    getChartsData() {
         // 泵站种类
         Axios.get("http://localhost:8080/data/pumpStationType.json").then(res => {
-            this.pumpStationType.series = [],
+            this.pumpStationType.series = []
             this.pumpStationType.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -81,7 +81,7 @@ export default class About extends Vue {
             })
         })
         Axios.get("http://localhost:8080/data/equipName.json").then(res => {
-            this.equipName.series = [],
+            this.equipName.series = []
             this.equipName.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -90,8 +90,8 @@ export default class About extends Vue {
             })
         })
         Axios.get("http://localhost:8080/data/pumpEquip.json").then(res => {
-            this.pumpEquip.series = [],
-            this.pumpEquip.xData = [],
+            this.pumpEquip.series = []
+            this.pumpEquip.xData = []
             this.pumpEquip.legendData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -118,11 +118,13 @@ export default class About extends Vue {
     }
 
     formatter(val: string, len: number) {
-        let strs = val.split(''); //字符串数组  
+        let strs = val.split(''); // 字符串数组  
         let str = ''  
-        for (let i = 0, s; s = strs[i++];) { //遍历字符串数组  
+        for (let i = 0, s; s = strs[i++];) { // 遍历字符串数组  
             str += s;  
-            if (!(i % len)) str += '\n';  
+            if (!(i % len)) {
+                str += '\n';
+            }   
         }  
         return str 
     }

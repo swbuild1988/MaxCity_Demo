@@ -1,6 +1,12 @@
 // login.Data 参数类型
 export interface LoginData {
-    pageName: string
+    pageName: string,
+    remember: boolean
+}
+
+export interface FormItemData {
+    name: any,
+    pass: any
 }
 
 // VUEX login.State 参数类型

@@ -25,9 +25,7 @@
         }
 
         drawMultiLine() {
-            this.myChart = (this as any).$echarts.init(
-                <HTMLDivElement | HTMLCanvasElement> document.getElementById(this.id)
-            );
+            this.myChart = (this as any).$echarts.init(document.getElementById(this.id) as HTMLCanvasElement),
             this.options = {
                 title: {
                     text: this.data.title,
@@ -50,7 +48,7 @@
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{
+                        lineStyle: {
                             color: ['#002756'],
                         }
                     }
@@ -66,7 +64,7 @@
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{
+                        lineStyle: {
                             color: ['#002756'],
                         }
                     }
@@ -84,11 +82,14 @@
                                 y: 0,
                                 x2: 0,
                                 y2: 1,
-                                colorStops: [{
-                                    offset: 0, color: this.data.rangeColors[0] ? this.data.rangeColors[0] : '#0173a4' // 0% 处的颜色
-                                }, {
-                                    offset: 1, color: this.data.rangeColors[1] ? this.data.rangeColors[1] : '#ffffff' // 100% 处的颜色
-                                }],
+                                colorStops: [
+                                    {
+                                        offset: 0, color: this.data.rangeColors[0] ? this.data.rangeColors[0] : '#0173a4' // 0% 处的颜色
+                                    }, 
+                                    {
+                                        offset: 1, color: this.data.rangeColors[1] ? this.data.rangeColors[1] : '#ffffff' // 100% 处的颜色
+                                    }
+                                ],
                                 global: false // 缺省为 false
                             }
                         }
@@ -96,7 +97,7 @@
                 ]
             },
             // 加载默认参数
-            (this as any).myChart.setOption(this.options);
+            (this as any).myChart.setOption(this.options)
             // 加载新的参数
             // if (this.parameters.option) {
             //     this.myChart.setOption(this.parameters.option);
@@ -105,16 +106,15 @@
         }
 
         getFontSize(val: string|number) {
-            if ( <number> val ) {
+            if ( val as number ) {
                 return val
             } else {
-                if (( <string> val ).indexOf('%') > 0) {
-                    let tmp = parseFloat(( <string> val).replace('%', '')) / 100;
+                if (( val as string ).indexOf('%') > 0) {
+                    let tmp = parseFloat(( val as string ).replace('%', '')) / 100;
                     let height = (this.$refs.basicArea as HTMLDivElement | HTMLCanvasElement).offsetHeight;
                     return Math.round(height * tmp);
                 }
             }
-			return 0;
 		}
     }
 </script>

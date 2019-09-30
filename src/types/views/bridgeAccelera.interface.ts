@@ -9,12 +9,13 @@ export interface BridgeAcceleraState {
     author?: string
 }
 
-export interface assetManageData {
+export interface AssetManageData {
     series: any[],
     xData: any[],
     isShow: boolean,
     title: string
 }
+
 
 // GET_DATA_ASYN 接口参数类型
 // export interface DataOptions {}

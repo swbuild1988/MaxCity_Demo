@@ -88,7 +88,7 @@ export default class About extends Vue {
     getChartsData() {
         // 设备统计
         Axios.get("http://localhost:8080/data/equipStatistic.json").then(res => {
-            this.equipStatistic.series = [],
+            this.equipStatistic.series = []
             this.equipStatistic.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -97,8 +97,8 @@ export default class About extends Vue {
             })
         })
         Axios.get("http://localhost:8080/data/equipDefence.json").then(res => {
-            this.equipDefence.series = [],
-            this.equipDefence.yData = [],
+            this.equipDefence.series = []
+            this.equipDefence.yData = []
             this.equipDefence.legendData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -124,11 +124,13 @@ export default class About extends Vue {
     }
 
     formatter(val: string) {
-        let strs = val.split(''); //字符串数组  
+        let strs = val.split(''); // 字符串数组  
         let str = ''  
-        for (let i = 0, s; s = strs[i++];) { //遍历字符串数组  
+        for (let i = 0, s; s = strs[i++];) { // 遍历字符串数组  
             str += s;  
-            if (!(i % 4)) str += '\n';  
+            if (!(i % 4)) {
+                str += '\n';
+            }   
         }  
         return str 
     }

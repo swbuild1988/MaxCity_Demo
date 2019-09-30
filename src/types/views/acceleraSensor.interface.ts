@@ -12,9 +12,9 @@ export interface AcceleraSensorState {
     author?: string
 }
 
-export interface assetManageData {
-    xData: any[]
-    series: any[]
+export interface AssetLength {
+    assetTopLen?: string,
+    assetLeftLen?: string
 }
 
 // GET_DATA_ASYN 接口参数类型

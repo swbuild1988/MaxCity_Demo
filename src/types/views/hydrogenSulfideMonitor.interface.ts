@@ -11,7 +11,7 @@ export interface HydrogenSulfideMonitorState {
     author?: string
 }
 
-export interface assetManageData {
+export interface AssetManageData {
     xData: any[]
     series: any[],
     isShow: boolean,

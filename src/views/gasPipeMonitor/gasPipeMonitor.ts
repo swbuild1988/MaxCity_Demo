@@ -71,7 +71,7 @@ export default class About extends Vue {
 
     getChartsData() {
         Axios.get("http://localhost:8080/data/buildRange.json").then(res => {
-            this.buildRange.series = [],
+            this.buildRange.series = []
             this.buildRange.xData = []
             let{ data } = res
             data.result.forEach((element: any) => {
@@ -80,8 +80,8 @@ export default class About extends Vue {
             })
         })
         Axios.get("http://localhost:8080/data/sewagePipeline.json").then(res => {
-            this.sewagePipeline.legendData = [],
-            this.sewagePipeline.series = [],
+            this.sewagePipeline.legendData = []
+            this.sewagePipeline.series = []
             this.sewagePipeline.xData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -106,8 +106,8 @@ export default class About extends Vue {
             })
         })
         Axios.get("http://localhost:8080/data/observeStationCount.json").then(res => {
-            this.observeStation.series = [],
-            this.observeStation.xData = [],
+            this.observeStation.series = []
+            this.observeStation.xData = []
             this.observeStation.legendData = []
             let{ data } = res
             data.result[0].val.map((type: any) => {
@@ -134,11 +134,13 @@ export default class About extends Vue {
     }
 
     formatter(val: string) {
-        let strs = val.split(''); //字符串数组  
+        let strs = val.split(''); // 字符串数组  
         let str = ''  
-        for (let i = 0, s; s = strs[i++];) { //遍历字符串数组  
+        for (let i = 0, s; s = strs[i++];) { // 遍历字符串数组  
             str += s;  
-            if (!(i % 4)) str += '\n';  
+            if (!(i % 4)) {
+                str += '\n';  
+            } 
         }  
         return str 
     }

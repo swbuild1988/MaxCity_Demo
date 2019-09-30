@@ -30,9 +30,7 @@
         }
 
         drawMultiLine() {
-            this.myChart = (this as any).$echarts.init(
-                <HTMLDivElement | HTMLCanvasElement> document.getElementById(this.id)
-            );
+            this.myChart = (this as any).$echarts.init(document.getElementById(this.id) as HTMLCanvasElement),
             this.options = {
                 title: {
                     text: this.data.title,
@@ -87,17 +85,13 @@
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{
+                        lineStyle: {
                             color: ['#0f3069'],
                         }
                     }
                 },
                 series: this.data.series,
-                color: this.data.lineColors && this.data.lineColors.length ? this.data.lineColors : ['#c45df1','#1095da']
-                // 缩放
-                // dataZoom: [{
-                //     type: "inside"
-                // }]
+                color: this.data.lineColors && this.data.lineColors.length ? this.data.lineColors : ['#c45df1', '#1095da']
             },
             // 加载默认参数
             (this as any).myChart.setOption(this.options);
@@ -109,16 +103,15 @@
         }
 
         getFontSize(val: string|number) {
-            if ( <number> val ) {
+            if ( val as number ) {
                 return val
             } else {
-                if (( <string> val ).indexOf('%') > 0) {
-                    let tmp = parseFloat(( <string> val).replace('%', '')) / 100;
-                    let height = (this.$refs.element as HTMLDivElement | HTMLCanvasElement).offsetHeight;
+                if (( val as string ).indexOf('%') > 0) {
+                    let tmp = parseFloat(( val as string ).replace('%', '')) / 100;
+                    let height = (this.$refs.basicArea as HTMLDivElement | HTMLCanvasElement).offsetHeight;
                     return Math.round(height * tmp);
                 }
             }
-			return 0;
 		}
     }
 </script>
